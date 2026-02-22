@@ -72,5 +72,16 @@ Este software sigue estrictamente las reglas del **Phylactery Lich** de SkullRen
 3. **Purity**: Prohibido el uso de librerías visuales pesadas (se eliminó Ionic en favor de CSS nativo y Tailwind).
 
 ---
+---
+
+## 🧠 Lecciones en Producción (Engram Entry)
+
+Durante el despliegue de la v1.0.0, se documentaron los siguientes aprendizajes críticos para el estándar SkullRender:
+
+1.  **SPA Routing en GitHub Pages:** Los servidores estáticos no manejan rutas de Angular nativamente. El uso de un `404.html` (copia de `index.html`) es la solución técnica definitiva para permitir recargas de página y SEO básico.
+2.  **Subdirectorios y Base Href:** GitHub Pages coloca el proyecto bajo `/repo-name/`. El build DEBE incluir `--base-href /repo-name/` para evitar recursos rotos.
+3.  **Resiliencia de Estado:** El reinicio de flujos complejos (como el diagnóstico) debe siempre limpiar el almacén de señales y redirigir a la ruta raíz definida en el `app.routes.ts` (evitar alias inexistentes).
+
+---
 **Desarrollado con precisión técnica por SkullRender.**  
 *"Generamos tu idea desde los huesos."*
