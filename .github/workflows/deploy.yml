@@ -6,13 +6,11 @@ on:
   pull_request:
     branches: [ main ]
 
-# Configura los permisos necesarios para el despliegue nativo de GH Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Permite solo un despliegue a la vez para evitar colisiones
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -35,10 +33,15 @@ jobs:
       - name: 🏗️ Build Application
         run: bun run build
 
+      - name: 🔍 Debug Output Structure
+        run: |
+          ls -R dist/
+          
       - name: 📤 Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/daniela-english-coaching/browser
+          # Ajustamos la ruta para asegurar que encuentre los archivos estáticos
+          path: ./dist/daniela-english-coaching/browser/
 
   deploy:
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feat/pure-bones-refactor')
