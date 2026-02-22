@@ -1,0 +1,56 @@
+<div class="min-h-screen bg-brand-white text-brand-black flex flex-col font-sans">
+    <!-- HERO SECTION -->
+    <main class="flex-grow flex flex-col items-center justify-center text-center px-6 py-12 max-w-3xl mx-auto">
+        <a [routerLink]="['/home']"
+            class="w-24 h-24 bg-brand-lightblue rounded-full flex items-center justify-center mb-8 mx-auto hover:scale-105 transition-transform cursor-pointer">
+            <span class="text-brand-blue font-bold text-3xl">TD</span>
+        </a>
+
+        <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue leading-tight mb-6">
+            Domina el inglés para tu vida real y profesional
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl">
+            Coaching 1 a 1 para adultos y universitarios (A1-B2). Evaluamos tu nivel, fijamos tus metas y creamos un
+            plan exclusivo para ti.
+        </p>
+
+        <button (click)="goToDiagnosis()"
+            class="bg-brand-blue text-brand-white font-bold py-4 px-8 rounded-xl shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-1 text-lg mb-4">
+            Comenzar mi Diagnóstico Interactivo
+        </button>
+        <p class="text-sm text-gray-500">Toma menos de 1 minuto • Incluye clase de prueba gratis</p>
+    </main>
+
+    <!-- INFORMATIVE SECTIONS (DEFER) -->
+    @defer (on viewport) {
+    <section class="bg-gray-50 py-16 px-6 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+
+            <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                <div class="text-brand-blue text-4xl mb-4">🎯</div>
+                <h3 class="font-bold text-xl mb-2 text-brand-black">Enfoque Real</h3>
+                <p class="text-gray-600 text-sm">Práctica para el trabajo, universidad o viajes. Sin relleno académico
+                    inútil.</p>
+            </div>
+
+            <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                <div class="text-brand-blue text-4xl mb-4">🗣️</div>
+                <h3 class="font-bold text-xl mb-2 text-brand-black">100% Conversacional</h3>
+                <p class="text-gray-600 text-sm">Clases diseñadas para que hables desde el primer día, perdiendo el
+                    miedo.</p>
+            </div>
+
+            <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                <div class="text-brand-blue text-4xl mb-4">⚙️</div>
+                <h3 class="font-bold text-xl mb-2 text-brand-black">Adaptable</h3>
+                <p class="text-gray-600 text-sm">Planes y horarios ajustados a tu rutina de adulto ocupado.</p>
+            </div>
+
+        </div>
+    </section>
+    } @placeholder {
+    <div class="py-16 text-center text-gray-400">Desplázate para conocer la metodología...</div>
+    }
+
+</div>

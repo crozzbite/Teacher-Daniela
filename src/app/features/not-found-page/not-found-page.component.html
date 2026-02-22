@@ -1,0 +1,31 @@
+<div class="min-h-screen bg-brand-white flex flex-col items-center justify-center text-center px-6 font-sans">
+
+    <!-- Decorative skull-like broken circle -->
+    <div class="w-32 h-32 rounded-full border-4 border-dashed border-brand-blue flex items-center justify-center mb-8">
+        <span class="text-brand-blue font-black text-5xl">?</span>
+    </div>
+
+    <p class="text-brand-blue font-semibold tracking-widest uppercase text-sm mb-4">Error 404</p>
+
+    <h1 class="text-4xl md:text-5xl font-extrabold text-brand-black mb-6 leading-tight">
+        Esta ruta no existe.
+    </h1>
+
+    <p class="text-lg text-gray-500 max-w-md mb-10">
+        Parece que intentaste acceder a una página que no existe. No te preocupes,
+        aquí no se pierde ningún alumno.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a [routerLink]="['/']"
+            class="inline-block bg-brand-blue text-brand-white font-bold py-4 px-8 rounded-xl shadow-lg hover:bg-blue-700 transition">
+            Regresar al Diagnóstico
+        </a>
+        <a [routerLink]="['/diagnosis']"
+            class="border-2 border-brand-blue text-brand-blue font-bold py-3 px-8 rounded-xl hover:bg-brand-lightblue transition">
+            Hacer mi Diagnóstico
+        </a>
+    </div>
+
+    <p class="mt-12 text-sm text-gray-400">Teacher Daniela Coaching · Diseñado por SkullRender</p>
+</div>
