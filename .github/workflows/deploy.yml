@@ -31,7 +31,10 @@ jobs:
         run: bun install
 
       - name: 🏗️ Build Application
-        run: bun run build
+        run: bun run build -- --base-href /Teacher-Daniela/
+
+      - name: 🧩 Create 404.html Fallback
+        run: cp dist/daniela-english-coaching/browser/index.html dist/daniela-english-coaching/browser/404.html
 
       - name: 🔍 Debug Output Structure
         run: |
