@@ -6,13 +6,19 @@ on:
   pull_request:
     branches: [ main ]
 
+# Configura los permisos necesarios para el despliegue nativo de GH Pages
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
+# Permite solo un despliegue a la vez para evitar colisiones
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: 💀 Checkout code
@@ -29,9 +35,19 @@ jobs:
       - name: 🏗️ Build Application
         run: bun run build
 
-      - name: 🚀 Deploy to GitHub Pages
-        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feat/pure-bones-refactor')
-        uses: peaceiris/actions-gh-pages@v4
+      - name: 📤 Upload Build Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/daniela-english-coaching/browser
+          path: ./dist/daniela-english-coaching/browser
+
+  deploy:
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/feat/pure-bones-refactor')
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
