@@ -46,5 +46,5 @@ export const routes: Routes = [
   },
 
   // Wildcard → diagnóstico
-  { path: '**', redirectTo: 'diagnosis' }
+  { path: '**', redirectTo: '' }
 ];

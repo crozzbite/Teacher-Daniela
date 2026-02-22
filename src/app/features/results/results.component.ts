@@ -27,6 +27,6 @@ export class ResultsComponent {
 
   restart() {
     this.state.reset();
-    this.router.navigate(['/diagnosis']);
+    this.router.navigate(['/']);
   }
 }

@@ -1,17 +1,19 @@
-<header class="p-6 flex justify-between items-center max-w-5xl mx-auto w-full">
+<header class="p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center max-w-5xl mx-auto w-full gap-4">
     <a [routerLink]="['/home']"
-        class="font-bold text-xl text-brand-blue tracking-tight hover:opacity-80 transition-opacity">
+        class="font-bold text-xl text-brand-blue tracking-tight hover:opacity-80 transition-opacity whitespace-nowrap">
         Teacher Daniela
     </a>
-    <nav class="flex items-center gap-6">
-        <a [routerLink]="['/about']" class="text-brand-black font-medium hover:text-brand-blue transition">
+    <nav class="flex flex-wrap items-center justify-center gap-3 sm:gap-6">
+        <a [routerLink]="['/about']"
+            class="text-brand-black font-medium hover:text-brand-blue transition text-sm sm:text-base">
             Sobre mí
         </a>
-        <a [routerLink]="['/metodologia']" class="text-brand-black font-medium hover:text-brand-blue transition">
+        <a [routerLink]="['/metodologia']"
+            class="text-brand-black font-medium hover:text-brand-blue transition text-sm sm:text-base">
             Metodología
         </a>
         <button (click)="goToDiagnosis()"
-            class="bg-brand-blue text-brand-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-700 transition text-sm">
+            class="bg-brand-blue text-brand-white font-semibold py-2 px-4 sm:px-5 rounded-lg hover:bg-blue-700 transition text-xs sm:text-sm">
             Diagnóstico Gratuito
         </button>
     </nav>
