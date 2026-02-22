@@ -1,0 +1,11 @@
+<div class="text-center max-w-3xl mx-auto">
+    <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4"
+        [ngClass]="dark() ? 'text-white' : 'text-brand-black'">
+        {{ title() }}
+    </h2>
+    @if (subtitle()) {
+    <p class="text-lg md:text-xl font-light" [ngClass]="dark() ? 'text-gray-400' : 'text-gray-600'">
+        {{ subtitle() }}
+    </p>
+    }
+</div>

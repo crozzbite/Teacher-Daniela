@@ -1,0 +1,108 @@
+<div class="slides-container" #slides (scroll)="onScroll($event)">
+
+    <!-- Slide 1: Bienvenida -->
+    <div class="slide bg-brand-blue text-brand-white">
+        <div class="content text-center p-6 max-w-md mx-auto">
+            <a [routerLink]="['/home']"
+                class="w-32 h-32 mx-auto rounded-full bg-brand-lightblue flex items-center justify-center mb-8 hover:scale-105 transition-transform cursor-pointer">
+                <span class="text-brand-blue font-bold text-2xl">TD</span>
+            </a>
+            <a [routerLink]="['/about']"
+                class="inline-block text-4xl font-bold mb-4 hover:text-blue-100 transition-colors">
+                Teacher Daniela
+            </a>
+            <p class="text-xl mb-8 text-blue-100">"Coaching de inglés personalizado para tu vida real."</p>
+            <button
+                class="w-full bg-brand-white text-brand-blue font-bold py-4 px-8 rounded-xl text-lg hover:opacity-90 transition"
+                (click)="nextSlide()">
+                COMENZAR DIAGNÓSTICO
+            </button>
+        </div>
+    </div>
+
+    <!-- Slide 2: Nivel -->
+    <div class="slide bg-brand-white text-brand-black" [class.error]="showErrors && !state.level()">
+        <div class="content text-center p-6 max-w-md w-full mx-auto">
+            <h2 class="text-3xl font-bold text-brand-blue mb-2">Tu Nivel Actual</h2>
+            <p class="text-base text-gray-600 mb-8">¿Cómo consideras tu inglés hoy?</p>
+
+            @if (showErrors && !state.level()) {
+            <p class="text-red-500 font-bold mb-4 animate-pulse italic text-sm">⚠️ Esta respuesta es obligatoria</p>
+            }
+
+            <div class="flex flex-col gap-3">
+                @for (lvl of levels; track lvl) {
+                <button class="w-full text-left p-4 rounded-xl border-2 transition-all duration-200"
+                    [class.border-brand-blue]="state.level() === lvl" [class.bg-blue-50]="state.level() === lvl"
+                    [class.border-gray-200]="state.level() !== lvl && (!showErrors || state.level())"
+                    [class.error-border]="showErrors && !state.level()" (click)="selectLevel(lvl)">
+                    <span class="font-bold text-lg block">{{levelLabels[lvl]}}</span>
+                </button>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Objetivo -->
+    <div class="slide bg-brand-lightblue text-brand-black" [class.error]="showErrors && !state.goal()">
+        <div class="content text-center p-6 max-w-md w-full mx-auto">
+            <h2 class="text-3xl font-bold text-brand-blue mb-2">Tu Objetivo</h2>
+            <p class="text-base text-gray-700 mb-8">¿Para qué necesitas fluidez?</p>
+
+            @if (showErrors && !state.goal()) {
+            <p class="text-red-500 font-bold mb-4 animate-pulse italic text-sm">⚠️ Esta respuesta es obligatoria</p>
+            }
+
+            <div class="flex flex-col gap-3">
+                @for (g of goals; track g) {
+                <button class="w-full text-left p-4 rounded-xl border-2 bg-white transition-all duration-200"
+                    [class.border-brand-blue]="state.goal() === g" [class.shadow-md]="state.goal() === g"
+                    [class.border-transparent]="state.goal() !== g && (!showErrors || state.goal())"
+                    [class.error-border]="showErrors && !state.goal()" (click)="selectGoal(g)">
+                    <span class="font-bold text-lg block">{{g}}</span>
+                </button>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Urgencia & Cierre -->
+    <div class="slide bg-brand-blue text-brand-white" [class.error]="showErrors && !state.urgency()">
+        <div class="content text-center p-6 max-w-md w-full mx-auto">
+            <h2 class="text-3xl font-bold mb-2">¿Qué tan urgente es?</h2>
+            <p class="text-base text-blue-100 mb-8">Último paso para armar tu plan.</p>
+
+            @if (showErrors && !state.urgency()) {
+            <p class="text-white bg-red-500/50 rounded-lg p-2 font-bold mb-4 animate-pulse italic text-sm">⚠️ Esta
+                respuesta es obligatoria</p>
+            }
+
+            <div class="flex flex-col gap-3 mb-8">
+                @for (u of urgencies; track u) {
+                <button class="w-full text-left p-4 rounded-xl border-2 transition-all duration-200"
+                    [class.border-white]="state.urgency() === u" [class.bg-white]="state.urgency() === u"
+                    [class.text-brand-blue]="state.urgency() === u"
+                    [class.border-blue-400]="state.urgency() !== u && (!showErrors || state.urgency())"
+                    [class.border-red-400]="showErrors && !state.urgency()" (click)="selectUrgency(u)">
+                    <span class="font-bold text-lg block">{{u}}</span>
+                </button>
+                }
+            </div>
+            <button
+                class="w-full bg-brand-white text-brand-blue font-bold py-4 px-8 rounded-xl text-lg transition hover:bg-blue-50"
+                (click)="finishDiagnosis()">
+                VER MI PLAN →
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<!-- Nav Arrow -->
+@if (!isLastSlide) {
+<button
+    class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-black/30 text-white rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/50 transition z-50 animate-bounce"
+    (click)="nextSlide()">
+    ↓
+</button>
+}

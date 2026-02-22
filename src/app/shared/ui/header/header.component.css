@@ -1,0 +1,5 @@
+/* Header styles using Tailwind CSS utility classes */
+:host {
+    display: block;
+    width: 100%;
+}

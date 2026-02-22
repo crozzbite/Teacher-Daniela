@@ -1,0 +1,38 @@
+<div class="flex flex-col p-8 rounded-3xl border transition-all duration-300 h-full relative"
+    [ngClass]="highlight() ? 'bg-brand-black text-white border-brand-red scale-105 shadow-2xl z-10' : 'bg-white text-brand-black border-gray-200 hover:border-gray-300'">
+
+    @if (highlight()) {
+    <div
+        class="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-red text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full">
+        Recomendado
+    </div>
+    }
+
+    <h3 class="text-2xl font-bold mb-2">{{ title() }}</h3>
+    <p class="text-sm opacity-80 mb-6 flex-grow">{{ description() }}</p>
+
+    <div class="mb-8">
+        <span class="text-4xl font-black">{{ price() }}</span>
+        @if (price() !== 'GRATIS') {
+        <span class="text-sm opacity-60">/mes</span>
+        }
+    </div>
+
+    <ul class="space-y-4 mb-8">
+        @for (feature of features(); track feature) {
+        <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" [ngClass]="highlight() ? 'text-brand-red' : 'text-gray-400'"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm">{{ feature }}</span>
+        </li>
+        }
+    </ul>
+
+    <button class="w-full py-4 rounded-xl font-bold transition-colors mt-auto"
+        [ngClass]="highlight() ? 'bg-brand-red text-white hover:bg-red-700' : 'bg-gray-100 text-brand-black hover:bg-gray-200'"
+        (click)="onSelect(title())">
+        {{ buttonText() }}
+    </button>
+</div>

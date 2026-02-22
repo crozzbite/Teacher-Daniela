@@ -1,0 +1,18 @@
+<header class="p-6 flex justify-between items-center max-w-5xl mx-auto w-full">
+    <a [routerLink]="['/home']"
+        class="font-bold text-xl text-brand-blue tracking-tight hover:opacity-80 transition-opacity">
+        Teacher Daniela
+    </a>
+    <nav class="flex items-center gap-6">
+        <a [routerLink]="['/about']" class="text-brand-black font-medium hover:text-brand-blue transition">
+            Sobre mí
+        </a>
+        <a [routerLink]="['/metodologia']" class="text-brand-black font-medium hover:text-brand-blue transition">
+            Metodología
+        </a>
+        <button (click)="goToDiagnosis()"
+            class="bg-brand-blue text-brand-white font-semibold py-2 px-5 rounded-lg hover:bg-blue-700 transition text-sm">
+            Diagnóstico Gratuito
+        </button>
+    </nav>
+</header>

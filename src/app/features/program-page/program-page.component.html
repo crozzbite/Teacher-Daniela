@@ -1,0 +1,60 @@
+<section class="py-24 px-6 bg-white min-h-[60vh] flex flex-col items-center border-b border-gray-100">
+    <app-section-header title="Programa Académico A1–B2"
+        subtitle="Tu ruta hacia la fluidez conversacional en el mundo profesional.">
+    </app-section-header>
+
+    <div class="max-w-5xl mx-auto w-full mt-20 grid md:grid-cols-2 gap-8">
+        @for (level of levels; track level.id) {
+        <div
+            class="border border-gray-200 rounded-2xl p-8 hover:border-brand-red/30 transition-colors shadow-sm bg-white">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-2xl font-bold tracking-tight text-brand-black">{{ level.title }}</h3>
+                <span
+                    class="text-xs font-bold uppercase tracking-wider bg-gray-100 text-gray-600 px-3 py-1 rounded-full">{{
+                    level.duration }}</span>
+            </div>
+            <p class="text-gray-600 mb-6 font-light leading-relaxed">{{ level.description }}</p>
+            <div class="bg-gray-50 border border-gray-100 rounded-xl p-4">
+                <span class="text-xs font-bold text-brand-red uppercase tracking-wider block mb-1">Resultados
+                    Iniciales</span>
+                <p class="text-sm font-medium text-brand-black">{{ level.outcomes }}</p>
+            </div>
+        </div>
+        }
+    </div>
+</section>
+
+@defer (on viewport) {
+<!-- Pricing Section -->
+<section class="py-24 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+        <app-section-header title="Invierte en tu futuro. Hoy."
+            subtitle="Los idiomas no se compran mágicamente en 'una clase suelta'. Para lograr la meta, necesitamos compromiso y rutinas reales.">
+        </app-section-header>
+
+        <div class="mt-20 grid md:grid-cols-3 gap-8 items-stretch justify-center">
+            <app-pricing-card title="Clase Diagnóstica"
+                description="Comprobemos tu nivel exacto, sin riesgo ni compromiso." price="GRATIS"
+                [features]="['Evaluación exacta de debilidades', 'Plan de estudios a la medida', '30 min por Zoom']"
+                buttonText="Agendar Gratis" [highlight]="false">
+            </app-pricing-card>
+
+            <app-pricing-card title="The Fast Tracker"
+                description="Despegue inicial. Ideal para subir de nivel de manera acelerada. (Recomendado para A1-A2)"
+                price="$160"
+                [features]="['8 clases al mes (2 semanales)', 'Material PDF incluido', 'Documento de feedback en vivo', 'Prioridad de agenda']"
+                buttonText="Elegir Plan Intensivo" [highlight]="true">
+            </app-pricing-card>
+
+            <app-pricing-card title="The Consistency"
+                description="Mantenimiento y perfección. Ideal para mantener nivel o B1+." price="$85"
+                [features]="['4 clases al mes (1 semanal)', 'Pago adelantado del mes', 'Material PDF incluido', 'Documento de feedback en vivo']"
+                buttonText="Elegir Plan Regular" [highlight]="false">
+            </app-pricing-card>
+        </div>
+    </div>
+</section>
+} @placeholder {
+<div class="py-24 px-6 bg-gray-50 text-center text-gray-400 min-h-[50vh] flex items-center justify-center">Cargando
+    planes de inversión...</div>
+}

@@ -1,0 +1,104 @@
+<section class="py-24 px-6 bg-white min-h-[80vh] flex items-center border-b border-gray-100">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-24">
+
+        <div class="w-full md:w-5/12">
+            <!-- Image Placeholder with decorative elements -->
+            <div class="relative">
+                <div class="absolute -inset-4 bg-gray-100 rounded-3xl transform rotate-3"></div>
+                <div class="absolute -inset-4 bg-red-50 rounded-3xl transform -rotate-2"></div>
+                <div
+                    class="relative bg-gray-200 aspect-[4/5] rounded-2xl shadow-xl flex items-center justify-center overflow-hidden border-4 border-white">
+                    <span class="text-gray-400 font-medium">[Foto Casual Daniela]</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full md:w-7/12 space-y-8">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-brand-black">
+                Hi! I'm Daniela. <br>
+                <span class="text-brand-red block mt-2">And I'm here to fix your fluency.</span>
+            </h1>
+
+            <div class="space-y-6 text-lg md:text-xl text-gray-600 font-light leading-relaxed">
+                <p>
+                    Tengo años ayudando a personas como tú a romper la enorme barrera del miedo a hablar inglés. Me di
+                    cuenta de algo rápidamente en mi carrera: el sistema tradicional está roto porque tratan a los
+                    profesionales como si fueran niños de 12 años memorizando tablas.
+                </p>
+                <p>
+                    Teniendo una agenda ocupada como la tuya con el trabajo o los estudios, <strong>tu tiempo vale
+                        oro.</strong> Es por eso que mi método "Daniela English Coaching" no existe para venderte
+                    membresías infinitas donde solo avanzas un nivel al año.
+                </p>
+                <p>
+                    El objetivo es destrabar tu mente, quitarte el pánico y brindarte herramientas prácticas inmediatas
+                    que vas a usar MAÑANA en la oficina o la universidad. Todo de una manera libre de juicios y 100%
+                    conversacional.
+                </p>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center gap-6 border-t border-gray-200">
+                <div class="flex-1">
+                    <p class="font-bold text-xl text-brand-black mb-1">Are you ready to level up?</p>
+                    <p class="text-gray-500 text-sm">Hablemos directamente y evaluemos tu caso.</p>
+                </div>
+                <div>
+                    <button (click)="contactViaWhatsapp()"
+                        class="bg-brand-blue text-white font-bold py-4 px-8 rounded-full shadow-lg hover:opacity-90 transition-all text-lg">
+                        Hablar por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+@defer (on viewport) {
+<!-- Method Breakdown -->
+<section class="py-24 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+        <app-section-header title="Nuestra Garantía 'No-BS'"
+            subtitle="(No Bullshit). Cero rellenar libros; solo speaking, corrección en vivo y simulaciones inmersivas.">
+        </app-section-header>
+
+        <div class="mt-16 space-y-12">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex gap-6 items-start">
+                <div
+                    class="w-12 h-12 rounded-full bg-red-100 text-brand-red flex items-center justify-center font-bold text-xl flex-shrink-0">
+                    1</div>
+                <div>
+                    <h4 class="text-xl font-bold mb-2">Warm-up Conversacional</h4>
+                    <p class="text-gray-600 leading-relaxed font-light">Los primeros 10 minutos rompemos el hielo en
+                        100% inglés. "How was your weekend? Tell me about that project." Te acostumbras a pensar rápido.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex gap-6 items-start">
+                <div
+                    class="w-12 h-12 rounded-full bg-red-100 text-brand-red flex items-center justify-center font-bold text-xl flex-shrink-0">
+                    2</div>
+                <div>
+                    <h4 class="text-xl font-bold mb-2">Explicación Quirúrgica</h4>
+                    <p class="text-gray-600 leading-relaxed font-light">10 minutos de una regla gramatical o vocabulario
+                        corporativo, directo al punto y con ejemplos aplicados a situaciones de alto estrés laboral.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex gap-6 items-start">
+                <div
+                    class="w-12 h-12 rounded-full bg-red-100 text-brand-red flex items-center justify-center font-bold text-xl flex-shrink-0">
+                    3</div>
+                <div>
+                    <h4 class="text-xl font-bold mb-2">Roleplay Realista (Simulación)</h4>
+                    <p class="text-gray-600 leading-relaxed font-light">Simulamos escenarios críticos: The Airport, The
+                        Performance Review, The Angry Client, o Negociación de Salarios. Aplicar antes de memorizar.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+} @placeholder {
+<div class="py-24 px-6 text-center text-gray-400 min-h-[30vh] flex items-center justify-center">Cargando método...</div>
+}
